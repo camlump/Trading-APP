@@ -16,7 +16,8 @@ const app = express()
  * import routers from controllers/
  *
  */
-const { userRouter } = require('./controllers/user.js')
+const { userRouter } = require('./controllers/user.js');
+const { resourceRouter } = require('./controllers/resource.js');
 
 
 /* Step 3
@@ -50,6 +51,7 @@ app.use(express.static(`${__dirname}/client/build`))
  * the paths defined in the router.
  */
 app.use('/api/user', userRouter)
+app.use('api/resource', resourceRouter)
 
 /* Step 5
  *
