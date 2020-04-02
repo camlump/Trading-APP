@@ -3,7 +3,7 @@ const mongoose = require('./connection.js')
 
 const Resource = new mongoose.Schema({
     name:String,
-    Desctiption: String,
+    desctiption: String,
     image: String,
     URL:String
 })
