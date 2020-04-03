@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import * as ReactBooStrap from "react-bootstrap"
+
 
 
 
@@ -11,14 +13,27 @@ export default class Home extends Component {
         symbol: {
             enteredSymbol: ' ',
             name: ' ',
-        }
+        },
+
+        userAccount: []
+
+       
 
        
         
         
     }
-    
 
+    getReosources = () =>{
+        axios.get('/api/resource/').then((response)=>{
+            const foundResource = response.data;
+            this.setState({
+
+            })
+        })
+    }
+    
+//functions for stock api calls
     changeInput = (event) =>{
         const newSymbol = {...this.state.symbol}
         newSymbol[event.target.name] = event.target.value
@@ -69,6 +84,7 @@ export default class Home extends Component {
     
     
     
+    
 
    
 
@@ -80,12 +96,26 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+                <ReactBooStrap.Navbar bg="dark" variant="dark">
+    <ReactBooStrap.Navbar.Brand href="#home">Navbar</ReactBooStrap.Navbar.Brand>
+    <ReactBooStrap.Nav className="mr-auto">
+      <ReactBooStrap.Nav.Link href="#home">Home</ReactBooStrap.Nav.Link>
+      <ReactBooStrap.Nav.Link href="#features">Features</ReactBooStrap.Nav.Link>
+      <ReactBooStrap.Nav.Link href="#pricing">Pricing</ReactBooStrap.Nav.Link>
+    </ReactBooStrap.Nav>
+    <ReactBooStrap.Form onSubmit={this.onSubmitSymbol} inline>
+      <ReactBooStrap.FormControl type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock Symbol" className="mr-sm-2" />
+      <ReactBooStrap.FormControl type="submit" value="Search"/>
+    </ReactBooStrap.Form>
+  </ReactBooStrap.Navbar>
+  <br />
+  
                 <div>
-                    <h2>Search Stocks</h2>
+                    {/* <h2>Search Stocks</h2>
                     <form onSubmit={ this.onSubmitSymbol}>
                         <input type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock symbol" />
                         <input type="submit" value="Search"/>
-                    </form>
+                    </form> */}
 
                     <div>
                             <h2> {this.state.stockName}</h2>
