@@ -30,9 +30,21 @@ export default class Home extends Component {
     onSubmitSymbol = (event) =>{
         event.preventDefault();
         axios.get(`https://finnhub.io/api/v1/quote?symbol=${this.state.symbol.enteredSymbol}&token=bq3klmvrh5rb0pdpe5ng`).then((response)=>{
-            const res = response.data;
+            const current = response.data.c;
+            const high = response.data.h;
+            const low = response.data.l;
+            const open = response.data.o;
+            const close = response.data.pc;
+            const timeStamp = response.data.t;
+
+  
             this.setState({
-                stockPrices: res
+                currentPrice: current,
+                highPrice: high,
+                lowPrice: low,
+                openPrice: open,
+                closePrice: close,
+                time: timeStamp,
             })
         
             return axios.get('https://finnhub.io/api/v1/stock/symbol?exchange=US&token=bq3klmvrh5rb0pdpe5ng')
@@ -76,7 +88,10 @@ export default class Home extends Component {
                     </form>
 
                     <div>
-                            <h2>{this.state.stockName}</h2>
+                            <h2> {this.state.stockName}</h2>
+                                <p>Current price: { this.state.currentPrice}</p>
+                                <p>Open price:{this.state.currentPrice}</p>
+                                    <p> High price: {this.state.highPrice}</p>
                            
                            
                             
