@@ -17,9 +17,7 @@ export default class Home extends Component {
         
         
     }
-   getCompanyName = () =>{
-       
-   }
+    
 
     changeInput = (event) =>{
         const newSymbol = {...this.state.symbol}
@@ -36,6 +34,23 @@ export default class Home extends Component {
             this.setState({
                 stockPrices: res
             })
+        
+            return axios.get('https://finnhub.io/api/v1/stock/symbol?exchange=US&token=bq3klmvrh5rb0pdpe5ng')
+        }).then((name)=>{
+            const newName = name.data;
+            for(let i = 0; i < newName.length; i++){
+                if ( newName[i].displaySymbol === this.state.symbol.enteredSymbol){
+                    this.setState({
+
+                        stockName: newName[i].description
+                      
+                    })
+                   
+                }
+               
+
+
+            }
         })
     }
     
@@ -59,6 +74,13 @@ export default class Home extends Component {
                         <input type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock symbol" />
                         <input type="submit" value="Search"/>
                     </form>
+
+                    <div>
+                            <h2>{this.state.stockName}</h2>
+                           
+                           
+                            
+                    </div>
                 </div>
 
                
