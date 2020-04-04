@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import Navbar from './navbar'
 
 export default class singleResource extends Component {
     state = {
@@ -50,14 +51,30 @@ export default class singleResource extends Component {
     }
     render() {
 
+        
+        if(this.state.redirectToResources){
+            return <Redirect to="/resources" />
+        }
+       
+        
+        
         const { name, description, image, URL} = this.state.resource
         return (
             <div>
+                <Navbar/>
                 <img src={ image } alt="resource image"/>
                 <h2>{name }</h2>
              <p>{description}</p>
               <a href={URL} target="_blank">Link here</a>
                 
+                <form onSubmit={ this.submitEditForm}>
+                <input type="text" name="name" value={this.state.editResource.name} onChange={this.changeInput}/>
+                            <input type="text" name="description" value={ this.state.editResource.description} onChange={this.changeInput} />
+                            <input type="text"  name="image" value={ this.state.editResource.image}  onChange={this.changeInput} />
+                            <input type="text" name="URL" value={ this.state.editResource.URL}  onChange={this.changeInput} />
+                            <input type="submit" value="Update"/>
+                </form>
+                <button onClick={this.deleteResource}>Delete</button>
             </div>
         )
     }
