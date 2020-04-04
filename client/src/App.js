@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home.jsx'
 import ResourceList from './components/ResourceList.jsx'
 import UserAccount from './components/UserAccount.jsx'
+import singleResource from './components/singleResource'
 
 
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/resources" component={ResourceList}/>
+          <Route exact  path="/resources/:resourceId" component={ singleResource}/>
           <Route exact path="/account" component={ UserAccount}/>
         </Switch>
       </Router>

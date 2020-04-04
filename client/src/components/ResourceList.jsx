@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import Navbar from './navbar'
+import Navbar from './navbar';
 
 
 
@@ -10,7 +10,7 @@ export default class ResourceList extends Component {
     state ={
         resources: [],
         newResource: {
-            name: ''
+            name: '',
 
         },
         resourceForm:false
@@ -42,7 +42,7 @@ export default class ResourceList extends Component {
     }
 
     onSubmitResource = (event) => {
-        event.prevenDefault();
+        event.preventDefault();
         axios.post('/api/resource', this.state.newResource).then(()=>{
             this.toggleResourceForm();
             this.getReources();
@@ -73,15 +73,17 @@ export default class ResourceList extends Component {
                         </form> : null
                     }
                 </div>
-                    {
-                        this.state.resources.map((resource, i)=>{
-                            return(
-                                <div key={ i}>
-                                    <Link to={'resource/'+ resource._id}>{ resource.name}</Link>
-                                </div>
-                            )
-                        })
-                    }
+                   {
+                       this.state.resources.map((resource, i)=>{
+                           return (
+                               <div key={i}>
+                                   <Link to={'resources/' + resource._id}>{ resource.name }</Link>
+
+                               </div>
+                           )
+
+                       })
+                   }
                 
             </div>
         )
