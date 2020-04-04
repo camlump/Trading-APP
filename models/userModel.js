@@ -5,7 +5,7 @@ const User = new mongoose.Schema({
 
     city: String,
 
-    Email: String,
+    state: String,
     
     accountBalance: Number,
 })

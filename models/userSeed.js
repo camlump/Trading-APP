@@ -13,7 +13,7 @@ const newUser = [
         name: "Bugs Bunny",
         city: "Atlanta",
         state: "GA",
-        accountBalance: 0,
+        accountBalance: 200,
     },
 ];
 

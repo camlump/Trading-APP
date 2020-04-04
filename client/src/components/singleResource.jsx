@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link, Redirect } from 'react-router-dom'
+import {  Redirect } from 'react-router-dom'
 import Navbar from './navbar'
 
 export default class singleResource extends Component {
@@ -13,7 +13,7 @@ export default class singleResource extends Component {
     getReource = ()=>{
         const resourceId = this.props.match.params.resourceId;
         axios.get('/api/resource/' + resourceId).then((response)=>{
-            const foundResource = response.data;
+           
             this.setState({
                 resource: response.data,
                 editResource: response.data

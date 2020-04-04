@@ -107,17 +107,31 @@ export default class Home extends Component {
   <br />
   
                 <div>
-                    {/* <h2>Search Stocks</h2>
-                    <form onSubmit={ this.onSubmitSymbol}>
-                        <input type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock symbol" />
-                        <input type="submit" value="Search"/>
-                    </form> */}
+                  
 
                     <div>
-                            <h2> {this.state.stockName}</h2>
-                                <p>Current price: { this.state.currentPrice}</p>
-                                <p>Open price:{this.state.currentPrice}</p>
-                                    <p> High price: {this.state.highPrice}</p>
+                    <ReactBootStrap.Card style={{ width: '18rem' }}>
+                            
+                            <ReactBootStrap.Card.Body>
+                                <ReactBootStrap.Card.Title>{this.state.stockName}</ReactBootStrap.Card.Title>
+                                </ReactBootStrap.Card.Body>
+                                    <ReactBootStrap.ListGroup className="list-group-flush">
+                                        <ReactBootStrap.ListGroupItem onclick={ this.buyStock }>Current price: { this.state.currentPrice}</ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem>Low price: { this.state.lowPrice}</ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem>High price: { this.state.highPrice}</ReactBootStrap.ListGroupItem>
+                                    </ReactBootStrap.ListGroup>
+                                    <ReactBootStrap.Card.Body>
+                                <ReactBootStrap.Card.Link href="#">Buy Share</ReactBootStrap.Card.Link>
+                                {/* <ReactBootStrap.Card.Link href="#">Another Link</ReactBootStrap.Card.Link> */}
+                                </ReactBootStrap.Card.Body>
+                            </ReactBootStrap.Card>
+
+
+
+                                    {/* <h2> {this.state.stockName}</h2>
+                                     <p>Current price: { this.state.currentPrice}</p>
+                                <p>Low price:{this.state.lowPrice}</p>
+                                    <p> High price: {this.state.highPrice}</p> */}
                            
                            
                             
