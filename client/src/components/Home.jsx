@@ -96,6 +96,7 @@ export default class Home extends Component {
     <ReactBootStrap.Nav className="mr-auto">
       <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/resources">Resources</ReactBootStrap.Nav.Link>
+      <ReactBootStrap.Nav.Link href="http://eoddata.com/symbols.aspx" target="_blank">Symbols</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/account">My Account</ReactBootStrap.Nav.Link>
     </ReactBootStrap.Nav>
     <ReactBootStrap.Form onSubmit={this.onSubmitSymbol} inline>

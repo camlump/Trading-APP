@@ -49,8 +49,14 @@ export default class singleResource extends Component {
         this.getReource()
     }
     render() {
+
+        const { name, description, image, url} = this.state.resource
         return (
             <div>
+                <img src={ image } alt="resource image"/>
+                <h2>{name }</h2>
+             <p>{description}</p>
+              <a href={url}>Link here</a>
                 
             </div>
         )
