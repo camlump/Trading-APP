@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import * as ReactBooStrap from "react-bootstrap"
+import * as ReactBootStrap from "react-bootstrap"
+
 
 
 
@@ -24,14 +25,8 @@ export default class Home extends Component {
         
     }
 
-    getReosources = () =>{
-        axios.get('/api/resource/').then((response)=>{
-            const foundResource = response.data;
-            this.setState({
 
-            })
-        })
-    }
+
     
 //functions for stock api calls
     changeInput = (event) =>{
@@ -96,18 +91,18 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <ReactBooStrap.Navbar bg="dark" variant="dark">
-    <ReactBooStrap.Navbar.Brand href="#home">Navbar</ReactBooStrap.Navbar.Brand>
-    <ReactBooStrap.Nav className="mr-auto">
-      <ReactBooStrap.Nav.Link href="#home">Home</ReactBooStrap.Nav.Link>
-      <ReactBooStrap.Nav.Link href="#features">Features</ReactBooStrap.Nav.Link>
-      <ReactBooStrap.Nav.Link href="#pricing">Pricing</ReactBooStrap.Nav.Link>
-    </ReactBooStrap.Nav>
-    <ReactBooStrap.Form onSubmit={this.onSubmitSymbol} inline>
-      <ReactBooStrap.FormControl type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock Symbol" className="mr-sm-2" />
-      <ReactBooStrap.FormControl type="submit" value="Search"/>
-    </ReactBooStrap.Form>
-  </ReactBooStrap.Navbar>
+                <ReactBootStrap.Navbar bg="dark" variant="dark">
+    <ReactBootStrap.Navbar.Brand href="#home">The Stock App</ReactBootStrap.Navbar.Brand>
+    <ReactBootStrap.Nav className="mr-auto">
+      <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
+      <ReactBootStrap.Nav.Link href="/resources">Resources</ReactBootStrap.Nav.Link>
+      <ReactBootStrap.Nav.Link href="/account">My Account</ReactBootStrap.Nav.Link>
+    </ReactBootStrap.Nav>
+    <ReactBootStrap.Form onSubmit={this.onSubmitSymbol} inline>
+      <ReactBootStrap.FormControl type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock Symbol" className="mr-sm-2" />
+      <ReactBootStrap.FormControl type="submit" value="Search"/>
+    </ReactBootStrap.Form>
+  </ReactBootStrap.Navbar>
   <br />
   
                 <div>

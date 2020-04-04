@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link } from 'react-router-dom'
+
+import Navbar from './navbar'
 
 
 
@@ -52,6 +55,7 @@ export default class ResourceList extends Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <div>
                     <button className="togglebutton" onClick={this.toggleResourceForm}>Add Resource</button>
                 </div>
@@ -69,6 +73,15 @@ export default class ResourceList extends Component {
                         </form> : null
                     }
                 </div>
+                    {
+                        this.state.resources.map((resource, i)=>{
+                            return(
+                                <div key={ i}>
+                                    <Link to={'resource/'+ resource._id}>{ resource.name}</Link>
+                                </div>
+                            )
+                        })
+                    }
                 
             </div>
         )
