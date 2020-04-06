@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import * as ReactBootStrap from "react-bootstrap"
+import { Link } from 'react-router-dom'
 
 
 
@@ -23,13 +24,11 @@ export default class Home extends Component {
 
 getUsers = () =>{
     axios.get('/api/user').then((response)=>{
-        const foundUser = response.data
+        const foundUser = response.data[0]
         console.log(foundUser)
         this.setState({
             user: foundUser,
-            
-
-         })
+            })
     })
 }
 
@@ -86,6 +85,8 @@ getUsers = () =>{
         })
     }
 
+    
+
     //end of api calls for getting stock information
 
     //start of buying stocks for the user account
@@ -100,12 +101,14 @@ getUsers = () =>{
             let balance = parseInt(this.state.user.accountBalance);
             console.log(balance)
            
+            let updatedStockShares = parseInt(this.state.user.stockShares);
+            console.log(updatedStockShares)
             // const newStockShares = {...this.state.user.stockShares}
             if ( balance > current) {
                 
                 this.setState({
-                    newBalacne: current += balance,
-                    stockShares: this.state.users += 1
+                  accountBalance: balance -= current,
+                  stockShares: updatedStockShares += 1
                 })
 
             } else {
@@ -116,6 +119,7 @@ getUsers = () =>{
         })
        
     }
+   
 
     componentDidMount(){
         this.getUsers()
@@ -177,9 +181,10 @@ getUsers = () =>{
                             </ReactBootStrap.Card>
                         </ReactBootStrap.Col>
     <ReactBootStrap.Col> 
+                <Link to="/users"><h2>Users here</h2></Link>
         <ReactBootStrap.Card className="circle">
-                                       <ReactBootStrap.Card.Title>User: ${ this.state.user.accountBalance}</ReactBootStrap.Card.Title>
-                                       <ReactBootStrap.Card.Title>shares: { this.state.user.stockShares }</ReactBootStrap.Card.Title>
+                        <ReactBootStrap.Card.Title>User: $ {this.state.user.accountBalance}</ReactBootStrap.Card.Title>
+                                       <ReactBootStrap.Card.Title>shares: {this.state.user.stockShares } </ReactBootStrap.Card.Title>
                                      </ReactBootStrap.Card>
                                      </ReactBootStrap.Col>
                             </ReactBootStrap.Row>

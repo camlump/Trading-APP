@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import Navbar from './navbar'
 
 export default class UsersList extends Component {
 
@@ -7,7 +9,7 @@ export default class UsersList extends Component {
         users: [],
         newUsers: {
             name: '',
-            accountBalance
+         
         },
         userForm: false,
     }
@@ -17,6 +19,7 @@ export default class UsersList extends Component {
                 users: response.data
             })
         })
+    }
         
         changeInput = (event)=>{
             const addUser = {...this.state.newUsers}
@@ -41,16 +44,18 @@ export default class UsersList extends Component {
             })
         }
 
-        this.componentDidMount(){
+        componentDidMount(){
             this.getUsers()
         }
+     
 
 
     render() {
         return (
             <div>
+                <Navbar />
                   <div>
-                    <button className="togglebutton" onClick={this.toggleUserForm}>Add Resource</button>
+                    <button className="togglebutton" onClick={this.toggleUserForm}>Add User</button>
                 </div>
                 <br/>
                 <br/>
@@ -66,6 +71,17 @@ export default class UsersList extends Component {
                         </form> : null
                     }
                 </div>
+                {
+                       this.state.users.map((user, i)=>{
+                           return (
+                               <div key={i}>
+                                   <Link to={'users/' + user._id}>{ user.name }</Link>
+
+                               </div>
+                           )
+
+                       })
+                   }
                 
             </div>
         )

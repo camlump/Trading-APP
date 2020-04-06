@@ -26,11 +26,13 @@ export default class UserAccount extends Component {
     }
 
     changeInput = (event) =>{
-       event.preventDefault()
-       event.target.value += this.props.accountBalance
+     let updatedbalance = this.state.user.newAccountBalance
+     console.log(updatedbalance)
+     updatedbalance = event.target.name
 
          this.setState({
-                newAccountBalance: event.target.value
+                accountBalance: event.target.value += parseInt(this.state.user.updatedbalance)
+
          })
       
     }
@@ -38,16 +40,16 @@ export default class UserAccount extends Component {
     onSubmitValue = (event) =>{
             event.preventDefault()
             axios.post('/api/user', this.state.user).then(()=>{
-                this.getUsers()
+                this.setState({
+                    accountBalance: event.target.value
+                })
             })
     }
 
     
 
 
-    componentDidMountUser(){
-        this.getUsers()
-    }
+    
 
 
     
