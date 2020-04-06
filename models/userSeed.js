@@ -7,6 +7,7 @@ const newUser = [
         city: "Atlanta",
         State: "GA",
         accountBalance: 0,
+        stockShares: 0
 
     },
     {
@@ -14,6 +15,7 @@ const newUser = [
         city: "Atlanta",
         state: "GA",
         accountBalance: 200,
+        stockShares: 0
     },
 ];
 

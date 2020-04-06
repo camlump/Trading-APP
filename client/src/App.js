@@ -5,6 +5,8 @@ import ResourceList from './components/ResourceList.jsx'
 import UserAccount from './components/UserAccount.jsx'
 import singleResource from './components/singleResource'
 
+import './App.css'
+
 
 
 import './App.css';
