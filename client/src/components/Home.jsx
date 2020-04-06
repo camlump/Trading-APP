@@ -219,7 +219,7 @@ getUsers = () =>{
                           <ReactBootStrap.Container>
   <ReactBootStrap.Row>
     <ReactBootStrap.Col>
-        <ReactBootStrap.Card style={{ width: '18rem' }}>
+        <ReactBootStrap.Card id="stockCard" style={{ width: '18rem' }}>
                             
                             <ReactBootStrap.Card.Body>
                                 <ReactBootStrap.Card.Title>{this.state.stockName}</ReactBootStrap.Card.Title>

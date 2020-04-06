@@ -31,14 +31,16 @@
     transform: rotate(360deg);
   }
 }
-*{
+* {
   text-align: center !important;
+  color: #ffffff;
+  background-color: #0a0a0f;
 }
 
 .circle{
   width: 400px !important;
   height: 400px !important;
-  border: 4px solid green !important;
+  border: 2px solid yellow !important;
   border-radius: 100% !important;
   text-align: center;
   align-items: center;
@@ -47,5 +49,15 @@
 .card{
   align-content: center;
 justify-content:  center;
+}
+
+#stockCard{
+  border: 2px solid yellow !important;
+ 
+}
+
+.list-group-item{
+  background-color: #0a0a0f !important;
+  border: 2px solid yellow !important;
 }
 
