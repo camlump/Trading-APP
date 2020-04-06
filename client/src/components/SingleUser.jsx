@@ -11,6 +11,7 @@ export default class SingleUser extends Component {
         editUser: {},
 
         edit: {},
+        editForm: false,
     }
 
     getUser =()=>{
@@ -33,9 +34,16 @@ export default class SingleUser extends Component {
 
     sumbitEditForm = (event) =>{
         event.preventDefault()
-        const UserId = this.state.props.match.params.userId;
+        const userId = this.state.props.match.params.userId;
         axios.post('/api/user/' + userId, this.state.editUser).then(()=>{
             this.getUser()
+        })
+    }
+
+    toggleEdiform = () =>{
+        const newEditForm = !this.state.editForm
+        this.setState({
+            editForm: newEditForm
         })
     }
 
@@ -57,13 +65,29 @@ export default class SingleUser extends Component {
             return <Redirect to="/user" />
         }
 
-        const { name, accountBalance, stockShares} = this.state.user
+        const { name, accountBalance, stockShares, state, city} = this.state.user
         return (
             <div>
+                <div>
                 <h3>Username: { name }</h3>
              <p>Balance: { accountBalance }</p>
         <p>Shares: { stockShares }</p>
-                
+
+                </div>
+
+                <button onClick={this.toggleEdiform}>edit User</button>
+
+                {
+                    this.state.editForm ? <div>
+                     <form onSubmit={ this.sumbitEditForm }>
+                        Edit Name: <input type="text" name="name" value={ name } onChange={ this.changeInput } placeholder="change name"/> <br/> <br/>
+                       Edit City: <input type="text" name="city" value={ city } onChange={ this.changeInput} placeholder=" change state"/> <br/> <br/>
+                       Edit State: <input type="text" name="state" value={ state } onChange={ this.changeInput } placeholder="change state"/> <br/> <br/>
+                        <input type="submit" value="update"/>
+
+                    </form>
+                </div> : null
+            } 
             </div>
         )
     }
