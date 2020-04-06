@@ -92,6 +92,7 @@ getUsers = () =>{
     //start of buying stocks for the user account
 
     buyStock = (event) =>{
+        console.log('button Clicked')
         event.preventDefault()
         axios.get(`https://finnhub.io/api/v1/quote?symbol=${this.state.symbol.enteredSymbol}&token=bq3klmvrh5rb0pdpe5ng`).then((response)=>{
             
@@ -107,12 +108,24 @@ getUsers = () =>{
             if ( balance > current) {
                 
                 this.setState({
-                  accountBalance: balance -= current,
-                  stockShares: updatedStockShares += 1
+                    user: {
+                    accountBalance:balance -= current,
+                    stockShares:updatedStockShares += 1,
+                    name: this.state.user.name,
+                    city: this.state.user.city,
+                    state: this.state.user.state,
+                    _id: this.state.user._id
+                    },
+                //   accountBalance: balance -= current,
+                //   stockShares: updatedStockShares += 1
                 })
-
+                
+                axios.put('/api/user/' + this.state.user._id, this.state.user).then(()=>{
+                    this.getUsers()
+                })
             } else {
                 alert('you do not have enough moeny for a share in this stock');
+            
             }
 
                 

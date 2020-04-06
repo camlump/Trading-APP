@@ -10,6 +10,8 @@ const User = new mongoose.Schema({
     accountBalance: Number,
 
     stockShares: Number,
+
+   
 })
 
 
