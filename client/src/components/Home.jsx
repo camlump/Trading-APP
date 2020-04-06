@@ -19,6 +19,11 @@ export default class Home extends Component {
 
         user: { },
        
+        comments: [],
+
+        commentform: false,
+
+        newComments: {}
 
 }
 
@@ -84,6 +89,9 @@ getUsers = () =>{
             }
         })
     }
+   
+
+
 
     
 
@@ -132,10 +140,44 @@ getUsers = () =>{
         })
        
     }
-   
+     //End of Stock Api calls
+
+     getComments=()=>{
+        axios.get('/api/comments').then((response)=>{
+            this.setState({
+                comments : response.data
+            })
+        })
+     }
+
+     changeCommentInput =(event)=>{
+        const addComment = {...this.state.newComment }
+        addComment[event.target.name] = event.target.value;
+        this.setState({
+            newComment: addComment
+        })
+     }
+
+     toggleCommentForm = () =>{
+         const newCommentForm = !this.state.commentform
+         this.setState({
+             commentform: newCommentForm
+         })
+     }
+
+     onSubmitComment=(event)=>{
+        event.preventDefault();
+        axios.post('/api/comments', this.state.newComment).then(()=>{
+            this.toggleCommentForm();
+            this.getComments();
+        })
+     }
+
+
 
     componentDidMount(){
-        this.getUsers()
+        this.getUsers();
+        this.getComments();
     }
    
   
@@ -191,9 +233,50 @@ getUsers = () =>{
                                     <ReactBootStrap.Button onClick={ this.buyStock } variant="dark">Buy Share</ReactBootStrap.Button>
                                 {/* <ReactBootStrap.Card.Link href="#">Another Link</ReactBootStrap.Card.Link> */}
                                 </ReactBootStrap.Card.Body>
-                            </ReactBootStrap.Card>
+                                    </ReactBootStrap.Card>
+                                    <br/>
+                                    <div>
+                                        {
+                                            this.state.comments.map((comment, i)=>{
+                                                return (
+                                                   <ReactBootStrap.ListGroup key={i}>
+                                                        <Link to={'comments/' + comment._id}><ReactBootStrap.ListGroupItem>{comment.description }</ReactBootStrap.ListGroupItem></Link>
+                                                    </ReactBootStrap.ListGroup>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    <br/>
+                                    
+                                    <div>
+                                        {
+                                        this.state.commentform ? <ReactBootStrap.Form onSubmit={ this.onSubmitComment }>
+                                        <ReactBootStrap.Form.Group controlId="exampleForm.ControlInput1">
+                                            <ReactBootStrap.Form.Label>Name</ReactBootStrap.Form.Label>
+                                            <ReactBootStrap.Form.Control type="text" placeholder="username" />
+                                        </ReactBootStrap.Form.Group>
+                                        <ReactBootStrap.Form.Group controlId="exampleForm.ControlSelect1">
+                                            
+                                        
+                                        </ReactBootStrap.Form.Group>
+                                        <ReactBootStrap.Form.Group controlId="exampleForm.ControlSelect2">
+                                            
+                                        
+                                        </ReactBootStrap.Form.Group>
+                                        <ReactBootStrap.Form.Group controlId="exampleForm.ControlTextarea1">
+                                            <ReactBootStrap.Form.Label>Comment</ReactBootStrap.Form.Label>
+                                            <ReactBootStrap.Form.Control as="textarea" rows="3" />
+                                        </ReactBootStrap.Form.Group>
+                                        </ReactBootStrap.Form> : null
+                                            }
+                                        </div>
+                                        <div>
+                                    <ReactBootStrap.Button onClick={ this.toggleCommentForm } variant="dark">Add Comment</ReactBootStrap.Button>
+                                    </div>
                         </ReactBootStrap.Col>
-    <ReactBootStrap.Col> 
+   
+   
+   <ReactBootStrap.Col> 
                 <Link to="/users"><h2>Users here</h2></Link>
         <ReactBootStrap.Card className="circle">
                         <ReactBootStrap.Card.Title>User: $ {this.state.user.accountBalance}</ReactBootStrap.Card.Title>

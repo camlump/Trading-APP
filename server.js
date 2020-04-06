@@ -18,6 +18,7 @@ const app = express()
  */
 const { userRouter } = require('./controllers/user.js');
 const { resourceRouter } = require('./controllers/resource.js');
+const { commentRouter } = require('./controllers/comment.js');
 
 
 /* Step 3
@@ -52,6 +53,7 @@ app.use(express.static(`${__dirname}/client/build`))
  */
 app.use('/api/user', userRouter)
 app.use('/api/resource', resourceRouter)
+app.use('/api/comments', commentRouter)
 
 /* Step 5
  *

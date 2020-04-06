@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import Navbar from './navbar'
 
 export default class SingleUser extends Component {
     state = {
@@ -68,6 +69,7 @@ export default class SingleUser extends Component {
         const { name, accountBalance, stockShares, state, city} = this.state.user
         return (
             <div>
+                <Navbar />
                 <div>
                 <h3>Username: { name }</h3>
              <p>Balance: { accountBalance }</p>
