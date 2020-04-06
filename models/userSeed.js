@@ -6,7 +6,7 @@ const newUser = [
         name: "Cameron Lumpkin",
         city: "Atlanta",
         state: "GA",
-        accountBalance: 0,
+        accountBalance: 100000,
         stockShares: 0
 
     },

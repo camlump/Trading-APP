@@ -5,6 +5,7 @@ import ResourceList from './components/ResourceList.jsx'
 import UserAccount from './components/UserAccount.jsx'
 import singleResource from './components/singleResource'
 import UsersList from './components/UsersList'
+import SingleUser from './components/SingleUser'
 
 import './App.css'
 
@@ -23,6 +24,7 @@ function App() {
           <Route exact  path="/resources/:resourceId" component={ singleResource}/>
           <Route exact path="/account" component={ UserAccount}/>
           <Route exact path="/users" component={UsersList} />
+          <Route exact path="/users/:userId" component={ SingleUser} />
         </Switch>
       </Router>
           <div>
