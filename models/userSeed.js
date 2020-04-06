@@ -5,7 +5,7 @@ const newUser = [
     {
         name: "Cameron Lumpkin",
         city: "Atlanta",
-        State: "GA",
+        state: "GA",
         accountBalance: 0,
         stockShares: 0
 
