@@ -32,7 +32,7 @@ commentRouter.put('/:commentId', (req, res)=>{
     });
 });
 
-commentRouter.delete('/:commmentId', (req, res)=>{
+commentRouter.delete('/:commentId', (req, res)=>{
     Comment.findByIdAndDelete(req.params.commentId).then(()=>{
         res.status(200).end()
     });

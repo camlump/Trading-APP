@@ -205,7 +205,7 @@ getUsers = () =>{
       <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/resources">Resources</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="http://eoddata.com/symbols.aspx" target="_blank">Symbols</ReactBootStrap.Nav.Link>
-      <ReactBootStrap.Nav.Link href="/account">My Account</ReactBootStrap.Nav.Link>
+      <ReactBootStrap.Nav.Link href="/users">Users</ReactBootStrap.Nav.Link>
     </ReactBootStrap.Nav>
     <ReactBootStrap.Form onSubmit={this.onSubmitSymbol} inline>
       <ReactBootStrap.FormControl type="text" name="enteredSymbol" onChange={this.changeInput} placeholder="Enter Stock Symbol" className="mr-sm-2" />
@@ -225,16 +225,18 @@ getUsers = () =>{
                                 <ReactBootStrap.Card.Title>{this.state.stockName}</ReactBootStrap.Card.Title>
                                 </ReactBootStrap.Card.Body>
                                     <ReactBootStrap.ListGroup className="list-group-flush">
-                                        <ReactBootStrap.ListGroupItem >Current price: { this.state.currentPrice}</ReactBootStrap.ListGroupItem>
-                                        <ReactBootStrap.ListGroupItem>Low price: { this.state.lowPrice}</ReactBootStrap.ListGroupItem>
-                                        <ReactBootStrap.ListGroupItem>High price: { this.state.highPrice}</ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem id="blue">Current price: { this.state.currentPrice}</ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem id="red">Low price: {  this.state.lowPrice}</ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem id="green">High price: { this.state.highPrice}</ReactBootStrap.ListGroupItem>
                                     </ReactBootStrap.ListGroup>
                                     <ReactBootStrap.Card.Body>
                                     <ReactBootStrap.Button onClick={ this.buyStock } variant="dark">Buy Share</ReactBootStrap.Button>
                                 {/* <ReactBootStrap.Card.Link href="#">Another Link</ReactBootStrap.Card.Link> */}
                                 </ReactBootStrap.Card.Body>
                                     </ReactBootStrap.Card>
+
                                     <br/>
+                                    <h3>talk about Your Portfolio below</h3>
                                     <div>
                                         {
                                             this.state.comments.map((comment, i)=>{
@@ -253,20 +255,16 @@ getUsers = () =>{
                                         this.state.commentform ? <ReactBootStrap.Form onSubmit={ this.onSubmitComment }>
                                         <ReactBootStrap.Form.Group controlId="exampleForm.ControlInput1">
                                             <ReactBootStrap.Form.Label>Name</ReactBootStrap.Form.Label>
-                                            <ReactBootStrap.Form.Control type="text" placeholder="username" />
+                                            <ReactBootStrap.Form.Control type="text" name="name" onChange={this.changeCommentInput} placeholder="username" />
                                         </ReactBootStrap.Form.Group>
                                         <ReactBootStrap.Form.Group controlId="exampleForm.ControlSelect1">
-                                            
-                                        
-                                        </ReactBootStrap.Form.Group>
-                                        <ReactBootStrap.Form.Group controlId="exampleForm.ControlSelect2">
-                                            
-                                        
-                                        </ReactBootStrap.Form.Group>
-                                        <ReactBootStrap.Form.Group controlId="exampleForm.ControlTextarea1">
+                                         </ReactBootStrap.Form.Group>
+                                         <ReactBootStrap.Form.Group controlId="exampleForm.ControlTextarea1">
                                             <ReactBootStrap.Form.Label>Comment</ReactBootStrap.Form.Label>
-                                            <ReactBootStrap.Form.Control as="textarea" rows="3" />
+                                            <ReactBootStrap.Form.Control as="textarea" type="text" name="description" onChange={this.changeCommentInput} rows="3" placeholder="Comment here..."/>
                                         </ReactBootStrap.Form.Group>
+                                        <ReactBootStrap.Form.Control type="submit" value="Post"/>
+                                        
                                         </ReactBootStrap.Form> : null
                                             }
                                         </div>
@@ -277,7 +275,7 @@ getUsers = () =>{
    
    
    <ReactBootStrap.Col> 
-                <Link to="/users"><h2>Users here</h2></Link>
+                
         <ReactBootStrap.Card className="circle">
                         <ReactBootStrap.Card.Title>User: $ {this.state.user.accountBalance}</ReactBootStrap.Card.Title>
                                        <ReactBootStrap.Card.Title>shares: {this.state.user.stockShares } </ReactBootStrap.Card.Title>

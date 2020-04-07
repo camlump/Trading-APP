@@ -44,11 +44,15 @@
   border-radius: 100% !important;
   text-align: center;
   align-items: center;
+  background-color: #0a0a0f !important;
 }
+
+
 
 .card{
   align-content: center;
 justify-content:  center;
+
 }
 
 #stockCard{
@@ -61,3 +65,15 @@ justify-content:  center;
   border: 2px solid yellow !important;
 }
 
+#green{
+  color: green !important;
+}
+
+#blue{
+  color: blue !important;
+
+}
+
+#red{
+  color: red !important;
+}

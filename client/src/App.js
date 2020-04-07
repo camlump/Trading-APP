@@ -6,6 +6,7 @@ import UserAccount from './components/UserAccount.jsx'
 import singleResource from './components/singleResource'
 import UsersList from './components/UsersList'
 import SingleUser from './components/SingleUser'
+import SingleComment from './components/SingleComment.jsx'
 
 import './App.css'
 
@@ -22,13 +23,15 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/resources" component={ResourceList}/>
           <Route exact  path="/resources/:resourceId" component={ singleResource}/>
-          <Route exact path="/account" component={ UserAccount}/>
+     
           <Route exact path="/users" component={UsersList} />
           <Route exact path="/users/:userId" component={ SingleUser} />
+          <Route exact path="/comments/:commentId" component={ SingleComment } />
         </Switch>
       </Router>
           <div>
-           
+
+            
           </div>
      
     </div>
