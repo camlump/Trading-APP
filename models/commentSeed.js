@@ -19,5 +19,5 @@ const newComments = [
 Comment.deleteMany().then(()=>{
     return Comment.create(newComments);
 }).then(()=>{
-    console.log('Database Seeded')
+    console.log('Database has seeded')
 })
