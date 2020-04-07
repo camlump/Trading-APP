@@ -61,27 +61,36 @@ export default class UsersList extends Component {
                 <br/>
                 <div>
                     {
-                        this.state.resourceForm ? <form onSubmit={this.onSubmitUser}>
-                            <input type="text" name="name" onChange={this.changeInput} placeholder="Name"/>
-                            <input type="text" name="description" onChange={this.changeInput} placeholder="Description"/>
-                            <input type="text" name="image" onChange={this.changeInput} placeholder="image"/>
-                            <input type="text" name="URL" onChange={this.changeInput} placeholder="URL here"/>
+                        this.state.userForm ? <form onSubmit={this.onSubmitUser}>
+                            <input type="text" name="name" onChange={this.changeInput} placeholder="Name"/> <br/> <br/>
+
+                            <input type="text" name="city" onChange={this.changeInput} placeholder="city"/> <br/> <br/>
+
+                            <input type="text" name="state" onChange={this.changeInput} placeholder="state"/> <br/>
+                            <input type="text" name="accountBalance" onChange={this.changeInput} placeholder="enter value"/> <br/> <br/>
+
                             <input type="submit" value="Add"/>
 
                         </form> : null
                     }
                 </div>
+                <br/>
+                <br/>
+                <h3>portfolio</h3>
+                <div className="userList">
+
                 {
                        this.state.users.map((user, i)=>{
                            return (
                                <div key={i}>
-                                   <Link to={'users/' + user._id}>{ user.name }</Link>
+                                   <Link to={'users/' + user._id}><h2>{ user.name }</h2></Link>
 
                                </div>
                            )
 
                        })
                    }
+                </div>
                 
             </div>
         )

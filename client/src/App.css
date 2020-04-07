@@ -31,20 +31,26 @@
     transform: rotate(360deg);
   }
 }
-* {
+.home {
   text-align: center !important;
   color: #ffffff;
-  background-color: #0a0a0f;
+  background: url('https://i.imgur.com/RO2X9ES.jpg');
+  background-size: cover;
+  
+
+ 
 }
 
 .circle{
   width: 400px !important;
   height: 400px !important;
-  border: 2px solid yellow !important;
+  border: 2px solid #ffffff !important;
   border-radius: 100% !important;
   text-align: center;
   align-items: center;
-  background-color: #0a0a0f !important;
+  background-color: #070713!important;
+  color: #ffffff;
+  opacity: .8;
 }
 
 
@@ -53,16 +59,23 @@
   align-content: center;
 justify-content:  center;
 
+
 }
 
 #stockCard{
-  border: 2px solid yellow !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff;
+  background-color:#070713;
+  opacity: .7;
  
 }
 
 .list-group-item{
-  background-color: #0a0a0f !important;
-  border: 2px solid #0a0a0f !important;
+  background-color: #070713 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff;
+  font-size: 22px;
+  opacity: .7;
  
 }
 .card-title{
@@ -83,4 +96,39 @@ justify-content:  center;
 
 .mainFont{
   font-family: 'Old Standard TT', serif;
+}
+
+.mainAB{
+  font-family: 'Segoe';
+  font-size: 32;
+}
+
+.userList{
+  font-family: 'Old Standard TT', serif;
+  font-size: 22px;
+  text-decoration: none !important;
+
+}
+
+h3{
+  color: #ffffff;
+}
+
+#stockInfo{
+  margin: 40px !important;
+  background-color: rgba(0, 0, 0, .6)!important;
+  text-align: center;
+  
+}
+
+p{
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0) !important;
+  font-size: 24px;
+  
+}
+
+#stockInfo h2{
+  color: #ff1a1a;
+  background: none;
 }

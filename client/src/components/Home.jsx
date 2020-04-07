@@ -195,7 +195,7 @@ getUsers = () =>{
     
     render() {
         return (
-            <div>
+            <div className="home">
         
                
                
@@ -236,7 +236,7 @@ getUsers = () =>{
                                     </ReactBootStrap.Card>
 
                                     <br/>
-                                    <h3 className="mainFont">talk about Your Portfolio below</h3>
+                                    <h3 className="mainFont">Talk about Your Portfolio below</h3>
                                     <div>
                                         {
                                             this.state.comments.map((comment, i)=>{
@@ -277,9 +277,18 @@ getUsers = () =>{
    <ReactBootStrap.Col> 
                 
         <ReactBootStrap.Card className="circle">
-                        <ReactBootStrap.Card.Title>User: $ {this.state.user.accountBalance}</ReactBootStrap.Card.Title>
-                                       <ReactBootStrap.Card.Title>shares: {this.state.user.stockShares } </ReactBootStrap.Card.Title>
+                        <ReactBootStrap.Card.Title>User: $ <span className="mainAB">{this.state.user.accountBalance}</span></ReactBootStrap.Card.Title>
+                                       <ReactBootStrap.Card.Title>shares: <span className="mainAB">{this.state.user.stockShares } </span> </ReactBootStrap.Card.Title>
                                      </ReactBootStrap.Card>
+                                     <div id="stockInfo">
+                                       <h2>Maintenance Alert</h2>
+                                         <p>This app allows users to track stock infomation through a search of stock symbols. this
+                                             application is still in development. upcoming changes will involve adding stock information 
+                                             to the users account as well as show the growth in your Portfolio over time.
+                                         </p>
+
+                                     </div>
+                                     
                                      </ReactBootStrap.Col>
                             </ReactBootStrap.Row>
             </ReactBootStrap.Container>

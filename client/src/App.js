@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home.jsx'
 import ResourceList from './components/ResourceList.jsx'
-import UserAccount from './components/UserAccount.jsx'
+
 import singleResource from './components/singleResource'
 import UsersList from './components/UsersList'
 import SingleUser from './components/SingleUser'
