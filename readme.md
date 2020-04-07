@@ -8,9 +8,9 @@ https://trello.com/b/yW4RtoDj/stock-app
 # wireFrames:
 
 ![pic1][screenshots/Homeview.png]
-![pic1][screenshots/resourcelist.png]
-![pic1][screenshots/SingleStockView.png]
-![pic1][screenshots/StockAccountpage.png]
+![pic2][screenshots/resourcelist.png]
+![pic3][screenshots/SingleStockView.png]
+![pic4][screenshots/StockAccountpage.png]
 
 
 
