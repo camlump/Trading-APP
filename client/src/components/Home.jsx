@@ -200,7 +200,7 @@ getUsers = () =>{
                
                
                 <ReactBootStrap.Navbar bg="dark" variant="dark">
-    <ReactBootStrap.Navbar.Brand href="#home">The Stock App</ReactBootStrap.Navbar.Brand>
+    <ReactBootStrap.Navbar.Brand className="mainFont" href="#home">The Stock App</ReactBootStrap.Navbar.Brand>
     <ReactBootStrap.Nav className="mr-auto">
       <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/resources">Resources</ReactBootStrap.Nav.Link>
@@ -225,9 +225,9 @@ getUsers = () =>{
                                 <ReactBootStrap.Card.Title>{this.state.stockName}</ReactBootStrap.Card.Title>
                                 </ReactBootStrap.Card.Body>
                                     <ReactBootStrap.ListGroup className="list-group-flush">
-                                        <ReactBootStrap.ListGroupItem id="blue">Current price: { this.state.currentPrice}</ReactBootStrap.ListGroupItem>
-                                        <ReactBootStrap.ListGroupItem id="red">Low price: {  this.state.lowPrice}</ReactBootStrap.ListGroupItem>
-                                        <ReactBootStrap.ListGroupItem id="green">High price: { this.state.highPrice}</ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem >Current price: <span id="blue">{ this.state.currentPrice}</span> </ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem>High price: <span  id="green">{ this.state.highPrice}</span> </ReactBootStrap.ListGroupItem>
+                                        <ReactBootStrap.ListGroupItem >Low price: <span id="red">{  this.state.lowPrice}</span></ReactBootStrap.ListGroupItem>
                                     </ReactBootStrap.ListGroup>
                                     <ReactBootStrap.Card.Body>
                                     <ReactBootStrap.Button onClick={ this.buyStock } variant="dark">Buy Share</ReactBootStrap.Button>
@@ -236,7 +236,7 @@ getUsers = () =>{
                                     </ReactBootStrap.Card>
 
                                     <br/>
-                                    <h3>talk about Your Portfolio below</h3>
+                                    <h3 className="mainFont">talk about Your Portfolio below</h3>
                                     <div>
                                         {
                                             this.state.comments.map((comment, i)=>{
@@ -254,7 +254,7 @@ getUsers = () =>{
                                         {
                                         this.state.commentform ? <ReactBootStrap.Form onSubmit={ this.onSubmitComment }>
                                         <ReactBootStrap.Form.Group controlId="exampleForm.ControlInput1">
-                                            <ReactBootStrap.Form.Label>Name</ReactBootStrap.Form.Label>
+                                            <ReactBootStrap.Form.Label className="mainFont">Name</ReactBootStrap.Form.Label>
                                             <ReactBootStrap.Form.Control type="text" name="name" onChange={this.changeCommentInput} placeholder="username" />
                                         </ReactBootStrap.Form.Group>
                                         <ReactBootStrap.Form.Group controlId="exampleForm.ControlSelect1">

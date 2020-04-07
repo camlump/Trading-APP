@@ -10,7 +10,7 @@ export default class navbar extends Component {
                     <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
                     <ReactBootStrap.Nav.Link href="/resources">Resources</ReactBootStrap.Nav.Link>
                     <ReactBootStrap.Nav.Link href="http://eoddata.com/symbols.aspx" target="_blank">Symbols</ReactBootStrap.Nav.Link>
-                    <ReactBootStrap.Nav.Link href="/account">My Account</ReactBootStrap.Nav.Link>
+                    <ReactBootStrap.Nav.Link href="/users">Users</ReactBootStrap.Nav.Link>
                     </ReactBootStrap.Nav>
                 </ReactBootStrap.Navbar>
             </div>

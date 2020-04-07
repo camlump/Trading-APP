@@ -62,18 +62,25 @@ justify-content:  center;
 
 .list-group-item{
   background-color: #0a0a0f !important;
-  border: 2px solid yellow !important;
+  border: 2px solid #0a0a0f !important;
+ 
 }
-
+.card-title{
+  font-family: 'Old Standard TT', serif;
+}
 #green{
-  color: green !important;
+  color: #00cc00!important;
 }
 
 #blue{
-  color: blue !important;
+  color: #ccffff !important;
 
 }
 
 #red{
-  color: red !important;
+  color:#ff1a1a!important;
+}
+
+.mainFont{
+  font-family: 'Old Standard TT', serif;
 }
