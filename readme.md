@@ -1,31 +1,38 @@
-# mern-template-project
+# The Stock App
 
-# Setup A New Project From This Template
+https://tradingaap.herokuapp.com/
 
-If you are starting a new project do the following:
+## planningBoard:
+https://trello.com/b/yW4RtoDj/stock-app
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+# wireFrames:
 
-# Setup A New Project Without This Template
-
-If you want to start a project without using this template directory do the
-following:
+![pic1][screenshots/Homeview.png]
+![pic1][screenshots/resourcelist.png]
+![pic1][screenshots/SingleStockView.png]
+![pic1][screenshots/StockAccountpage.png]
 
 
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+
+# Project overview
+
+The purpose of this application is to allow users to get familiar with how 
+trading stocks works and also to test and experiment with trends, buy adding stocks to portfolios.
+the user will be able to track their portfolio growth over time. the app uses data from  a 3rd party 
+API from https://finnhub.io/login. this API has plenty of information that can be pulled and used such as "time series" data
+"company info" and "quotes" this app currently uses "symbol" data from the API and "qoute" data. 
+    Some limations that I experienced during this project was that I did not have strong plan  for the type of data
+that I eas going to use. Also doing more in-depth research on the stock Trading before getting starting the project would've 
+helped out my overall functionality.
+
+# stretch goals
+
+
+1. add deposit and withdrawl functionality
+1. add time series data
+1. be able to push entire stock info into users profile where the user is able 
+to see all quote information, company name and the amount of shares owned for that stock
+1. add graphs to the UI to show real time data changes.
+1. add more bootstrap styling to the rescoure components
+
+
